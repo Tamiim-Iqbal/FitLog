@@ -22,8 +22,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="sticky top-0 z-50 bg-[#0c0d10] shadow-sm">
-      <div className="navbar w-10/12 mx-auto">
+    <div className="sticky top-0 z-50 bg-[#0c0d10]">
+
+      {/* Navbar */}
+      <div className="navbar mx-auto w-10/12">
 
         {/* Mobile Hamburger + Logo */}
         <div className="navbar-start">
@@ -83,6 +85,7 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="navbar-end gap-2">
 
+          {/* Plan */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
@@ -96,6 +99,7 @@ const Navbar = () => {
             </span>
           </Link>
 
+          {/* Saved */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
@@ -111,10 +115,14 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Full Width Divider */}
+      <div className="h-px w-full bg-[#24272d]" />
+
       {/* Mobile Dropdown */}
       {isMenuOpen && (
         <div className="border-t border-neutral-800 bg-neutral-950 px-5 py-4 lg:hidden">
           <ul className="flex flex-col gap-1 text-sm font-medium">
+
             {links.map((link) => {
               const isActive = pathname === link.href;
 
@@ -134,6 +142,7 @@ const Navbar = () => {
                 </li>
               );
             })}
+
           </ul>
         </div>
       )}

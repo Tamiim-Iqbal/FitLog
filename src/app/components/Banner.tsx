@@ -6,7 +6,7 @@ const Banner = () => {
       <div className="flex min-h-[270px] items-center overflow-hidden rounded-xl border border-[#24272d] bg-[#15171d] px-8 py-7">
 
         {/* Content */}
-        <div className="z-10 w-full lg:w-3/5">
+        <div className="z-10 w-full lg:w-3/5 lg:ml-10">
 
           {/* Small Heading */}
           <p className="mb-3 text-[12px] font-bold uppercase tracking-wide text-[#c2f800]">
