@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 bg-[#0c0d10] shadow-sm">
-      <div className="navbar container mx-auto">
+      <div className="navbar w-10/12 mx-auto">
 
         {/* Mobile Hamburger + Logo */}
         <div className="navbar-start">

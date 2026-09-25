@@ -8,7 +8,7 @@ const Footer = ({
 }) => {
   return (
     <footer className="bg-[#15171d]">
-      <div className="container mx-auto flex w-11/12 flex-col items-center justify-between gap-3 py-8 sm:flex-row">
+      <div className="container mx-auto flex w-10/12 flex-col items-center justify-between gap-3 py-8 sm:flex-row">
         <div className="flex items-center gap-2">
           <Image
             src={Logo}
