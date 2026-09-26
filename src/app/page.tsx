@@ -5,8 +5,8 @@ import WorkoutPage from "./workouts/page";
 export default function Home() {
   return (
     <div>
-      <Banner />
-      <WorkoutPage />
+      <Banner></Banner>
+      <WorkoutPage></WorkoutPage>
     </div>
   );
 }

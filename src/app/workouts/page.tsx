@@ -5,7 +5,7 @@ import { IWorkout } from '../types/workout';
 const getWorkouts = async () => {
 
     try{
-        const res = await fetch('https://api.abcz.workers.dev/api/fitlog', { cache: 'no-store',});
+        const res = await fetch('https://api.api-store.workers.dev/api/fitlog');
         const data = await res.json();
         return data;
     }

@@ -16,7 +16,7 @@ const WorkoutDetailPage = async ({
     const { id } = await params;
 
     const response = await fetch(
-        `https://api.abcz.workers.dev/api/fitlog/${id}`,
+        `https://api.api-store.workers.dev/api/fitlog/${id}`,
         {
             cache: "no-store",
         }
