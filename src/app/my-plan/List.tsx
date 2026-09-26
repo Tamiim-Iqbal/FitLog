@@ -5,19 +5,34 @@ import Link from "next/link";
 import { Clock3, Flame, Star, X } from "lucide-react";
 import { useContext } from "react";
 import { ExerciseContext } from "../context/ExerciseContext";
+import { IWorkout } from "../types/workout";
 
-const ListWorkout = ({ workout, activeTab }) => {
+interface ListWorkoutProps {
+  workout: IWorkout;
+  activeTab: "today" | "saved";
+}
+
+const ListWorkout = ({
+  workout,
+  activeTab,
+}: ListWorkoutProps) => {
   const { today, setToday, save, setSave } =
     useContext(ExerciseContext);
 
+  // Remove workout
   const handleRemove = () => {
     if (activeTab === "today") {
-      setToday(today.filter((item) => item.id !== workout.id));
+      setToday(
+        today.filter((item) => item.id !== workout.id)
+      );
     } else {
-      setSave(save.filter((item) => item.id !== workout.id));
+      setSave(
+        save.filter((item) => item.id !== workout.id)
+      );
     }
   };
 
+  // Mark as done
   const handleMarkAsDone = () => {
     console.log(`${workout.name} marked as done`);
   };
@@ -53,16 +68,19 @@ const ListWorkout = ({ workout, activeTab }) => {
         {/* Workout Info */}
         <div className="flex flex-wrap items-center gap-4 text-sm text-[#d5d5d8]">
 
+          {/* Duration */}
           <span className="flex items-center gap-1">
             <Clock3 className="h-4 w-4 text-[#c6ff00]" />
             {workout.duration} min
           </span>
 
+          {/* Calories */}
           <span className="flex items-center gap-1">
             <Flame className="h-4 w-4 text-[#c6ff00]" />
             {workout.caloriesBurned} kcal
           </span>
 
+          {/* Rating */}
           <span className="flex items-center gap-1">
             <Star className="h-4 w-4 text-[#c6ff00]" />
             {workout.rating}
@@ -82,7 +100,7 @@ const ListWorkout = ({ workout, activeTab }) => {
           View Details
         </Link>
 
-        {/* Mark as Done - Only Today's Plan */}
+        {/* Mark as Done */}
         {activeTab === "today" && (
           <button
             onClick={handleMarkAsDone}

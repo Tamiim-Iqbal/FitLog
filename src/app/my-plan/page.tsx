@@ -3,15 +3,49 @@
 import React, { useContext, useState } from "react";
 import ListWorkout from "./List";
 import { ExerciseContext } from "../context/ExerciseContext";
+import { IWorkout } from "../types/workout";
 
 const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
 
   const { save, today } = useContext(ExerciseContext);
 
-  // Active tab অনুযায়ী workouts
-  const activeWorkouts = activeTab === "today" ? today : save;
+  const [sortBy, setSortBy] = useState<
+    "duration" | "calories" | "rating"
+  >("duration");
 
+  // Sort workouts
+  const sortedWorkouts = (workouts: IWorkout[]) => {
+  const sorted = [...workouts];
+
+  if (sortBy === "duration") {
+    sorted.sort(
+      (a, b) => Number(a.duration) - Number(b.duration)
+    );
+  }
+
+  if (sortBy === "calories") {
+    sorted.sort(
+      (a, b) =>
+        Number(a.caloriesBurned) - Number(b.caloriesBurned)
+    );
+  }
+
+  if (sortBy === "rating") {
+    sorted.sort(
+      (a, b) => Number(b.rating) - Number(a.rating)
+    );
+  }
+
+  return sorted;
+};
+
+  // Sorted Today & Saved workouts
+ const sortedToday = sortedWorkouts(today);
+const sortedSave = sortedWorkouts(save);
+
+const activeWorkouts =
+  activeTab === "today" ? sortedToday : sortedSave;
   // Total minutes
   let totalMinutes = 0;
 
@@ -119,16 +153,36 @@ const MyPlanPage = () => {
               Sort By
             </label>
 
-            <select className="w-full bg-transparent border border-white/15 rounded-full px-4 py-2 text-sm text-white outline-none appearance-none">
-              <option className="bg-[#111827]">
+            <select
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy(
+                  e.target.value as
+                    | "duration"
+                    | "calories"
+                    | "rating"
+                )
+              }
+              className="select w-full bg-transparent border border-white/15 rounded-full px-4 py-2 text-sm text-white outline-none appearance-none"
+            >
+              <option
+                value="duration"
+                className="bg-[#111827]"
+              >
                 Duration
               </option>
 
-              <option className="bg-[#111827]">
+              <option
+                value="calories"
+                className="bg-[#111827]"
+              >
                 Calories
               </option>
 
-              <option className="bg-[#111827]">
+              <option
+                value="rating"
+                className="bg-[#111827]"
+              >
                 Rating
               </option>
             </select>
