@@ -163,7 +163,7 @@ const WorkoutDetailPage = async ({
                     <div className="mt-5 flex flex-wrap gap-3">
                         <button className="flex items-center gap-2 rounded-xl bg-[#c6ff00] px-4 py-2.5 text-sm font-medium text-black">
                             <CalendarPlus size={16} />
-                            Add to today's plan
+                            {"Add to today's plan"}
                         </button>
 
                         <button className="flex items-center gap-2 rounded-xl border border-[#d6d6d6] px-4 py-2.5 text-sm">

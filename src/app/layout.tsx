@@ -1,7 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,10 +33,11 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${oswald.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-screen flex-col bg-[#0c0d10]">
-
+      <body
+        className={`${oswald.className} flex min-h-screen flex-col bg-[#0c0d10]`}
+      >
         <Navbar />
 
         <main className="flex-1">

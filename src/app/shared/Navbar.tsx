@@ -68,7 +68,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`block rounded-3xl px-4 py-2 font-semibold transition-colors ${
+                    className={`block rounded-3xl px-4 py-2 font-semibold transition-colors font-[family-name:var(--font-inter)] ${
                       isActive
                         ? 'bg-[#1a2312] text-[#c2f800]'
                         : 'text-gray-200 hover:bg-[#15171d] hover:text-white'
@@ -88,7 +88,7 @@ const Navbar = () => {
           {/* Plan */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
+            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d] font-[family-name:var(--font-inter)]"
           >
             <span className="text-sm font-semibold text-white">
               Plan
@@ -102,7 +102,7 @@ const Navbar = () => {
           {/* Saved */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
+            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d] font-[family-name:var(--font-inter)]"
           >
             <span className="text-sm font-semibold text-white">
               Saved
