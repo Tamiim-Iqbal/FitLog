@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+
 const Banner = () => {
   return (
     <div className="container mx-auto w-10/12 py-7">
@@ -22,14 +23,17 @@ const Banner = () => {
 
           {/* Description */}
           <p className="mt-4 max-w-md text-sm leading-5 text-[#9ca3af]">
-  Fitlog is a dark, no-nonsense gym companion: pick a lift, lock it
-  into today&apos;s plan, and watch the week&apos;s work add up.
-</p>
+            Fitlog is a dark, no-nonsense gym companion: pick a lift, lock it
+            into today&apos;s plan, and watch the week&apos;s work add up.
+          </p>
 
           {/* Button */}
-          <button className="mt-5 rounded-md bg-[#c2f800] px-5 py-2.5 text-[12px] font-bold uppercase text-black transition-colors hover:bg-[#d4ff38]">
+          <a
+            href="#workouts"
+            className="mt-5 inline-block cursor-pointer rounded-md bg-[#c2f800] px-5 py-2.5 text-[12px] font-bold uppercase text-black transition-colors hover:bg-[#d4ff38]"
+          >
             Browse Workouts
-          </button>
+          </a>
         </div>
 
         {/* Workout Image */}

@@ -23,7 +23,7 @@ const WorkoutPage = async() => {
     console.log(workouts);
 
     return (
-        <section className="py-8">
+        <section id="workouts" className="py-8">
             <div className="mx-auto w-10/12 ">
                 <h2 className="text-2xl font-bold text-white font-[family-name:var(--font-oswald)]">THE LIBRARY</h2>
                 <p className=" text-gray-400">

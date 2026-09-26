@@ -9,7 +9,7 @@ interface WorkoutCardProps {
 
 const WorkoutCard = ({ workout }: WorkoutCardProps) => {
     return (
-        <Link
+        <Link 
             href={`/workouts/${workout.id}`}
             className="block overflow-hidden rounded-2xl border border-[#2d3038] bg-[#191b20] text-white transition hover:-translate-y-1 hover:border-[#c6ff00]"
         >
