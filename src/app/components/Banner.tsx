@@ -14,14 +14,14 @@ const Banner = () => {
           </p>
 
           {/* Main Heading */}
-          <h1 className="max-w-xl text-4xl uppercase leading-[0.9] tracking-tight text-white sm:text-5xl">
+          <h1 className="max-w-xl text-4xl uppercase leading-[0.9] tracking-tight text-white sm:text-5xl font-[family-name:var(--font-oswald)]">
             Train with intent. Log
             <br />
             <span className="mt-4 inline-block">every set.</span>
           </h1>
 
           {/* Description */}
-          <p className="mt-4 max-w-md text-sm leading-5 text-[#9ca3af] font-[family-name:var(--font-inter)]">
+          <p className="mt-4 max-w-md text-sm leading-5 text-[#9ca3af]">
   Fitlog is a dark, no-nonsense gym companion: pick a lift, lock it
   into today&apos;s plan, and watch the week&apos;s work add up.
 </p>

@@ -1,26 +1,42 @@
 'use client';
 
-import React, { createContext, ReactNode, useState } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
-export const ExerciseContext = createContext({});
+import { IWorkout } from '../types/workout';
 
-const ExerciseProvider = ({children}: {children: ReactNode}) => {
+interface ExerciseContextType {
+  today: IWorkout[];
+  setToday: Dispatch<SetStateAction<IWorkout[]>>;
+  save: IWorkout[];
+  setSave: Dispatch<SetStateAction<IWorkout[]>>;
+}
 
-    const [today, setToday] = useState([]);
-    const [save, setSave] = useState([]);
+export const ExerciseContext = createContext<ExerciseContextType>(
+  {} as ExerciseContextType
+);
 
-    const sharedState = {
+const ExerciseProvider = ({ children }: { children: ReactNode }) => {
+  const [today, setToday] = useState<IWorkout[]>([]);
+  const [save, setSave] = useState<IWorkout[]>([]);
+
+  return (
+    <ExerciseContext.Provider
+      value={{
         today,
         setToday,
         save,
-        setSave
-    };
-
-    return (
-        <ExerciseContext.Provider value={sharedState}>
-            {children}
-        </ExerciseContext.Provider>
-    );
+        setSave,
+      }}
+    >
+      {children}
+    </ExerciseContext.Provider>
+  );
 };
 
 export default ExerciseProvider;

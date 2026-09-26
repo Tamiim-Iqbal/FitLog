@@ -40,7 +40,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
                 </div>
 
                 {/* Name */}
-                <h3 className="text-xl font-bold uppercase tracking-wide text-[#eeeeee]">
+                <h3 className="text-xl font-bold uppercase tracking-wide text-[#eeeeee] font-[family-name:var(--font-oswald)]">
                     {workout.name}
                 </h3>
 

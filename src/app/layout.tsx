@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
 import ExerciseProvider from "./context/ExerciseContext";
-import { ToastContainer } from "react-toastify";
+import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const oswald = Oswald({
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
       className={`${oswald.variable} ${inter.variable} h-full antialiased`}
     >
       <body
-        className={`${oswald.className} flex min-h-screen flex-col bg-[#0c0d10]`}
+        className={`${inter.className} flex min-h-screen flex-col bg-[#0c0d10]`}
       >
         <ExerciseProvider>
 
@@ -50,7 +50,19 @@ export default function RootLayout({ children }) {
           </main>
 
           <Footer />
-          <ToastContainer />
+          <ToastContainer
+            autoClose={2000}
+            hideProgressBar
+            theme="dark"
+            closeButton={false}
+            toastStyle={{
+              width: "fit-content",
+              minHeight: "auto",
+              backgroundColor: "#15171d",
+              fontSize: "0.875rem",
+              marginRight: "2rem",
+            }}
+          />
         </ExerciseProvider>
 
       </body>

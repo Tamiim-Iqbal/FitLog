@@ -55,7 +55,7 @@ const Navbar = () => {
               height={32}
             />
 
-            <span className="text-lg font-bold tracking-wide text-white">
+            <span className="text-lg font-bold tracking-wide text-white font-[family-name:var(--font-oswald)]">
               FITLOG
             </span>
           </Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`block rounded-3xl px-4 py-2 font-semibold transition-colors font-[family-name:var(--font-inter)] ${
+                    className={`block rounded-3xl px-4 py-2 font-semibold transition-colors ${
                       isActive
                         ? 'bg-[#1a2312] text-[#c2f800]'
                         : 'text-gray-200 hover:bg-[#15171d] hover:text-white'
@@ -91,7 +91,7 @@ const Navbar = () => {
           {/* Plan */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d] font-[family-name:var(--font-inter)]"
+            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
           >
             <span className="text-sm font-semibold text-white">
               Plan
@@ -105,7 +105,7 @@ const Navbar = () => {
           {/* Saved */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d] font-[family-name:var(--font-inter)]"
+            className="flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors hover:bg-[#15171d]"
           >
             <span className="text-sm font-semibold text-white">
               Saved

@@ -14,7 +14,7 @@ const SaveButton = ({ workout }) => {
     );
 
     if (alreadySaved) {
-      toast.info(`${workout.name} is already saved!`);
+      toast.info(`Already in your saved list`);
       return;
     }
 
@@ -22,7 +22,7 @@ const SaveButton = ({ workout }) => {
 
     setSave([...save, workout]);
 
-    toast.success(`${workout.name} saved for later!`);
+    toast.success(`Saved for later`);
   };
 
   return (

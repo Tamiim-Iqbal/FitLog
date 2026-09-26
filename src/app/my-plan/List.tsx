@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { ExerciseContext } from "../context/ExerciseContext";
 import { IWorkout } from "../types/workout";
 
+import { toast } from "react-toastify";
+
 interface ListWorkoutProps {
   workout: IWorkout;
   activeTab: "today" | "saved";
@@ -25,16 +27,21 @@ const ListWorkout = ({
       setToday(
         today.filter((item) => item.id !== workout.id)
       );
+      toast.success(`Removed from today's plan`);
     } else {
       setSave(
         save.filter((item) => item.id !== workout.id)
       );
+      toast.success(`Removed from saved`);
     }
   };
 
   // Mark as done
   const handleMarkAsDone = () => {
-    console.log(`${workout.name} marked as done`);
+    setToday(
+        today.filter((item) => item.id !== workout.id)
+      );
+    toast.success(`Workout logged - nice job`);
   };
 
   return (

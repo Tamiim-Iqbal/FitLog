@@ -46,7 +46,7 @@ const WorkoutDetailPage = async ({
                 {/* Details */}
                 <div>
                     {/* Title */}
-                    <h1 className="text-3xl font-semibold uppercase tracking-wide">
+                    <h1 className="text-3xl font-semibold uppercase tracking-wide font-[family-name:var(--font-oswald)]">
                         {workout.name}
                     </h1>
 
@@ -143,7 +143,7 @@ const WorkoutDetailPage = async ({
 
                     {/* Instructions */}
                     <div className="mt-7">
-                        <h2 className="text-xl font-semibold uppercase tracking-wide">
+                        <h2 className="text-md font-bold uppercase tracking-wide">
                             Instructions
                         </h2>
 

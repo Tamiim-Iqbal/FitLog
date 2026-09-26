@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import ListWorkout from "./List";
 import { ExerciseContext } from "../context/ExerciseContext";
 import { IWorkout } from "../types/workout";
+import Link from "next/link";
 
 const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
@@ -16,36 +17,36 @@ const MyPlanPage = () => {
 
   // Sort workouts
   const sortedWorkouts = (workouts: IWorkout[]) => {
-  const sorted = [...workouts];
+    const sorted = [...workouts];
 
-  if (sortBy === "duration") {
-    sorted.sort(
-      (a, b) => Number(a.duration) - Number(b.duration)
-    );
-  }
+    if (sortBy === "duration") {
+      sorted.sort(
+        (a, b) => Number(a.duration) - Number(b.duration)
+      );
+    }
 
-  if (sortBy === "calories") {
-    sorted.sort(
-      (a, b) =>
-        Number(a.caloriesBurned) - Number(b.caloriesBurned)
-    );
-  }
+    if (sortBy === "calories") {
+      sorted.sort(
+        (a, b) =>
+          Number(a.caloriesBurned) - Number(b.caloriesBurned)
+      );
+    }
 
-  if (sortBy === "rating") {
-    sorted.sort(
-      (a, b) => Number(b.rating) - Number(a.rating)
-    );
-  }
+    if (sortBy === "rating") {
+      sorted.sort(
+        (a, b) => Number(b.rating) - Number(a.rating)
+      );
+    }
 
-  return sorted;
-};
+    return sorted;
+  };
 
   // Sorted Today & Saved workouts
- const sortedToday = sortedWorkouts(today);
-const sortedSave = sortedWorkouts(save);
+  const sortedToday = sortedWorkouts(today);
+  const sortedSave = sortedWorkouts(save);
 
-const activeWorkouts =
-  activeTab === "today" ? sortedToday : sortedSave;
+  const activeWorkouts =
+    activeTab === "today" ? sortedToday : sortedSave;
   // Total minutes
   let totalMinutes = 0;
 
@@ -66,7 +67,7 @@ const activeWorkouts =
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-light uppercase tracking-wide">
+          <h1 className="text-4xl font-semibold uppercase tracking-wide font-[family-name:var(--font-oswald)] ">
             My Plan
           </h1>
 
@@ -81,33 +82,33 @@ const activeWorkouts =
 
             {/* Exercises */}
             <div className="p-6 md:border-r border-white/10">
-              <p className="text-xs uppercase tracking-wider text-gray-500">
+              <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold">
                 Exercises
               </p>
 
-              <h2 className="text-5xl font-bold mt-2 text-lime-400">
+              <h2 className="text-5xl font-bold mt-2 text-lime-400 font-[family-name:var(--font-oswald)]">
                 {activeWorkouts.length}
               </h2>
             </div>
 
             {/* Minutes */}
             <div className="p-6 md:border-r border-white/10">
-              <p className="text-xs uppercase tracking-wider text-gray-500">
+              <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold">
                 Minutes
               </p>
 
-              <h2 className="text-5xl font-bold mt-2 text-gray-100">
+              <h2 className="text-5xl font-bold mt-2 text-gray-100 font-[family-name:var(--font-oswald)]">
                 {totalMinutes}
               </h2>
             </div>
 
             {/* Calories */}
             <div className="p-6">
-              <p className="text-xs uppercase tracking-wider text-gray-500">
+              <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold">
                 Calories
               </p>
 
-              <h2 className="text-5xl font-bold mt-2 text-gray-100">
+              <h2 className="text-5xl font-bold mt-2 text-gray-100 font-[family-name:var(--font-oswald)]">
                 {totalCalories}
               </h2>
             </div>
@@ -119,16 +120,15 @@ const activeWorkouts =
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-8">
 
           {/* Tabs */}
-          <div className="flex bg-[#121522] border border-white/10 rounded-full p-1 w-fit">
+          <div className="flex bg-[#15171d] border border-white/10 rounded-xl p-1 w-fit">
 
             {/* Today */}
             <button
               onClick={() => setActiveTab("today")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                activeTab === "today"
-                  ? "bg-[#0b0d15] text-lime-400"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition ${activeTab === "today"
+                ? "bg-[#0c0d10] text-lime-400"
+                : "text-gray-500 hover:text-gray-300"
+                }`}
             >
               Today&apos;s Plan
             </button>
@@ -136,11 +136,10 @@ const activeWorkouts =
             {/* Saved */}
             <button
               onClick={() => setActiveTab("saved")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                activeTab === "saved"
-                  ? "bg-[#0b0d15] text-lime-400"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition ${activeTab === "saved"
+                ? "bg-[#0c0d10] text-lime-400"
+                : "text-gray-500 hover:text-gray-300"
+                }`}
             >
               Saved
             </button>
@@ -148,7 +147,7 @@ const activeWorkouts =
           </div>
 
           {/* Sort */}
-          <div className="w-full sm:w-64">
+          <div className="w-full sm:w-64 flex flex-row gap-4 items-center">
             <label className="text-sm text-gray-300 mb-1 block">
               Sort By
             </label>
@@ -158,12 +157,12 @@ const activeWorkouts =
               onChange={(e) =>
                 setSortBy(
                   e.target.value as
-                    | "duration"
-                    | "calories"
-                    | "rating"
+                  | "duration"
+                  | "calories"
+                  | "rating"
                 )
               }
-              className="select w-full bg-transparent border border-white/15 rounded-full px-4 py-2 text-sm text-white outline-none appearance-none"
+              className="select w-5/12  rounded-xl px-4 py-2 text-sm text-white outline-none appearance-none bg-[#15171d]"
             >
               <option
                 value="duration"
@@ -204,9 +203,9 @@ const activeWorkouts =
 
           </div>
         ) : (
-          <div className="mt-8 rounded-3xl border border-white/10 bg-[#15171d] min-h-[280px] flex flex-col items-center justify-center text-center px-6">
+          <div className="mt-8 rounded-2xl border border-dashed border-white/15 border-amber-50 bg-[#15171d] min-h-[250px] flex flex-col items-center justify-center text-center px-6">
 
-            <h3 className="text-xl font-semibold uppercase tracking-wide">
+            <h3 className="text-xl font-semibold uppercase tracking-wide font-[family-name:var(--font-oswald)]">
               Nothing Here Yet
             </h3>
 
@@ -214,9 +213,14 @@ const activeWorkouts =
               Browse the library and add a lift to get today moving.
             </p>
 
-            <button className="mt-7 bg-lime-400 hover:bg-lime-300 text-black font-semibold px-6 py-3 rounded-full transition">
-              Go to workouts
-            </button>
+            <Link href="/" className="inline-block">
+              <button
+                type="button"
+                className="mt-7 px-6 py-3 rounded-3xl bg-lime-400 text-black font-semibold cursor-pointer transition hover:bg-lime-500"
+              >
+                Go to workouts
+              </button>
+            </Link>
 
           </div>
         )}
