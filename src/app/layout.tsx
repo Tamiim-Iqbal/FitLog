@@ -2,6 +2,9 @@ import { Geist, Geist_Mono, Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
+import ExerciseProvider from "./context/ExerciseContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -38,13 +41,18 @@ export default function RootLayout({ children }) {
       <body
         className={`${oswald.className} flex min-h-screen flex-col bg-[#0c0d10]`}
       >
-        <Navbar />
+        <ExerciseProvider>
 
-        <main className="flex-1">
-          {children}
-        </main>
+          <Navbar />
 
-        <Footer />
+          <main className="flex-1">
+            {children}
+          </main>
+
+          <Footer />
+          <ToastContainer />
+        </ExerciseProvider>
+
       </body>
     </html>
   );

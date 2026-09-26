@@ -1,14 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from '../../../public/fitlog-resources/assets/logo.png';
+import { ExerciseContext } from '../context/ExerciseContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const {today, save} = useContext(ExerciseContext);
 
   const links = [
     {
@@ -95,7 +98,7 @@ const Navbar = () => {
             </span>
 
             <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-lime-400 px-2 text-xs font-bold text-neutral-900">
-              0
+              {today.length}
             </span>
           </Link>
 
@@ -109,7 +112,7 @@ const Navbar = () => {
             </span>
 
             <span className="flex h-6 min-w-6 items-center justify-center rounded-full border border-neutral-600 px-2 text-xs font-bold text-neutral-200">
-              0
+              {save.length}
             </span>
           </Link>
         </div>
